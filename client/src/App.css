@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 760px) {
+  .content {
+    justify-content: center;
+  }
+}

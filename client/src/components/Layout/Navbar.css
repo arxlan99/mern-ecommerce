@@ -1,0 +1,28 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    color: var(--main-color);
+    align-items: center;
+    padding: 20px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: white;
+}
+
+.navbar-left {
+    font-size: 1.8rem;
+    margin-left: 25px;
+}
+
+.navbar-right {
+    font-size: 1.1rem;
+    margin-right: 25px;
+}
+
+.navbar-right>a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--main-color);
+}
