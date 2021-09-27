@@ -21,8 +21,25 @@
     margin-right: 25px;
 }
 
-.navbar-right>a {
+.navbar-right>div {
+    display: inline;
     margin-left: 25px;
     text-decoration: none;
     color: var(--main-color);
+}
+
+.navbar-badge-container {
+    display: inline;
+}
+
+.navbar-badge {
+    display: inline;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+    top: -5px;
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px 7px;
+    text-align: center;
 }

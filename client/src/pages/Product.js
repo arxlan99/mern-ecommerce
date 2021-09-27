@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -9,17 +9,26 @@ import { Fragment } from "react";
 import LoadingBox from "../components/Feedback/LoadingBox";
 import MessageBox from "../components/Feedback/MessageBox";
 import { getProductDetail } from "../store/actions/product";
+import { addToCart } from "../store/actions/cart";
 
 const Product = (props) => {
   const { id } = useParams();
+  // const history = useHistory();
 
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, error, product } = productDetail;
 
+  const [qty, setQty] = useState(1);
+
   useEffect(() => {
     dispatch(getProductDetail(id));
   }, [dispatch, id]);
+
+  const addToCartHandler = () => {
+    // history.push(`/cart/${id}?qty=${qty}`);
+    dispatch(addToCart(id, qty));
+  };
 
   return (
     <div className="product">
@@ -68,9 +77,33 @@ const Product = (props) => {
               </div>
               <div className="pcontent-items">
                 <span>Status</span>
-                <span>In Stock</span>
+                <span>
+                  {product.countInStock > 0 ? "In Stock" : "Unavailable"}
+                </span>
               </div>
-              <button className="pcontent-button">Add to Cart</button>
+              <div className="pcontent-items">
+                {product.countInStock > 0 && (
+                  <Fragment>
+                    <span>Quantity</span>
+                    <span>
+                      <select
+                        className="pcontent-items-select"
+                        value={qty}
+                        onChange={(e) => setQty(e.target.value)}
+                      >
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <option key={x} value={x + 1}>
+                            {x + 1}
+                          </option>
+                        ))}
+                      </select>
+                    </span>
+                  </Fragment>
+                )}
+              </div>
+              <button onClick={addToCartHandler} className="pcontent-button">
+                Add to Cart
+              </button>
             </div>
           </div>
         </Fragment>

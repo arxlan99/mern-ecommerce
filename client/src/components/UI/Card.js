@@ -17,7 +17,9 @@ const Card = (props) => {
         ></div>
       </Link>
       <div className="card-content">
-        <div className="content-title">{props.name}</div>
+        <Link to={productPath}>
+          <div className="content-title">{props.name}</div>
+        </Link>
         <Rating rating={props.rating} numReviews={props.numReviews} />
         <div className="content-desc">${props.price}</div>
       </div>

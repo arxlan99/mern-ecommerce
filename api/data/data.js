@@ -1,4 +1,21 @@
+import bcryptjs from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Ozkan",
+      email: "ozkan@gmail.com",
+      password: bcryptjs.hashSync("123456", 10),
+      isAdmin: true,
+    },
+    {
+      name: "John",
+      email: "john@gmail.com",
+      password: bcryptjs.hashSync("123456", 10),
+      isAdmin: false,
+    },
+  ],
+
   products: [
     {
       _id: "1",
@@ -33,7 +50,7 @@ const data = {
       image:
         "https://images.pexels.com/photos/9623645/pexels-photo-9623645.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       price: 220,
-      countInStock: 0,
+      countInStock: 10,
       brand: "Lacoste",
       rating: 4.8,
       numReviews: 17,

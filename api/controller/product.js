@@ -1,8 +1,6 @@
 import data from "../data/data.js";
 
 export const getProduct = (req, res) => {
-  console.log("----------", req.params.id);
-
   const product = data.products.find(
     (p) => parseInt(p._id) === parseInt(req.params.id)
   );
@@ -15,6 +13,5 @@ export const getProduct = (req, res) => {
 };
 
 export const getAllProducts = (req, res) => {
-  console.log("----------");
   res.send(data.products);
 };

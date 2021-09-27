@@ -23,12 +23,14 @@
 
 .product-back {
     text-decoration: underline;
+    margin-bottom: 10px;
 }
 
 .product-content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin: 0 100px;
 }
 
 .pcontent-center-items {
@@ -45,6 +47,18 @@
     border: 1px solid black;
     border-radius: 3px;
     object-fit: cover;
+}
+
+.pcontent-left {
+    height: 400px;
+    max-width: 300px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.pcontent-left img {
+    object-fit: fill;
+    height: 100%;
 }
 
 .pcontent-right {
@@ -70,6 +84,18 @@
     font-size: 1.2rem;
     background-color: var(--main-color);
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.pcontent-items-select {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.pcontent-items-select::hover {
+    border: 0.1rem #404040 solid;
 }
 
 @media screen and (max-width: 760px) {
