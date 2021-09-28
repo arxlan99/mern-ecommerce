@@ -8,11 +8,7 @@ import {
 } from "../actions/product";
 
 export const productListReducer = (
-  state = {
-    products: [],
-    loading: true,
-    error: undefined,
-  },
+  state = { products: [], loading: true },
   action
 ) => {
   switch (action.type) {
@@ -28,7 +24,7 @@ export const productListReducer = (
 };
 
 export const productDetailReducer = (
-  state = { product: {}, loading: true, error: undefined },
+  state = { product: {}, loading: true },
   action
 ) => {
   switch (action.type) {

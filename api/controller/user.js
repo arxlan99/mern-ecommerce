@@ -1,10 +1,10 @@
-import data from "../data/data.js";
 import User from "../models/user.js";
 
 export const createSeed = async (req, res, next) => {
   try {
+    await Product.deleteMany({});
     const createdUsers = await User.insertMany(data.users);
-    res.send({ createdUsers });
+    res.json({ createdUsers });
   } catch (error) {
     if (!error.statusCode) {
       error.statusCode = 500;
@@ -12,3 +12,5 @@ export const createSeed = async (req, res, next) => {
     next(error);
   }
 };
+
+

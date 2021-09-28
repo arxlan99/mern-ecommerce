@@ -6,15 +6,21 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import NotFound from "./pages/404";
 import Cart from "./pages/Cart";
-import MainLayout from "./components/Layout/MainLayout";
+import Signin from "./pages/Signin";
+import Register from "./pages/Register";
+
 function App() {
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <div className="app">
         <Navbar />
         <Switch>
           <Route path="/" exact>
             <Home />
+          </Route>
+          <Route path="/signin" component={Signin}></Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <Route path="/product/:id">
             <Product />

@@ -5,6 +5,7 @@ import Rating from "./Rating";
 
 const Card = (props) => {
   const productPath = "/product/" + props.id;
+  const { product } = props;
 
   return (
     <div className="card">
@@ -12,16 +13,16 @@ const Card = (props) => {
         <div
           className="card-img"
           style={{
-            backgroundImage: `url(${props.image})`,
+            backgroundImage: `url(${product.image})`,
           }}
         ></div>
       </Link>
       <div className="card-content">
         <Link to={productPath}>
-          <div className="content-title">{props.name}</div>
+          <div className="content-title">{product.name}</div>
         </Link>
-        <Rating rating={props.rating} numReviews={props.numReviews} />
-        <div className="content-desc">${props.price}</div>
+        <Rating rating={product.rating} numReviews={product.numReviews} />
+        <div className="content-desc">${product.price}</div>
       </div>
     </div>
   );
