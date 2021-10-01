@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Rating from "./Rating";
 
 const Card = (props) => {
-  const productPath = "/product/" + props.id;
   const { product } = props;
+  const productPath = "/product/" + product._id;
 
   return (
     <div className="card">

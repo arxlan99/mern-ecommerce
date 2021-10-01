@@ -24,7 +24,6 @@ const Cart = (props) => {
   }, [id, qty, dispatch]);
 
   const changeQtyHandler = (id, qty) => {
-    // console.log(id);
     dispatch(addToCart(id, qty));
   };
 

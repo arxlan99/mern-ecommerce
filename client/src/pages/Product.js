@@ -14,7 +14,6 @@ import { addToCart } from "../store/actions/cart";
 const Product = (props) => {
   const { id } = useParams();
   // const history = useHistory();
-
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, error, product } = productDetail;

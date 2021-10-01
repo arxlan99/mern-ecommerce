@@ -1,3 +1,42 @@
-.register {
+.register-form {
     flex: 1;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.register-form>div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form label {
+    margin: 0.5rem 0;
+    display: block;
+}
+
+.register-form input {
+    padding: 10px 20px;
+}
+
+.register-form button {
+    margin-top: 10px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.register-form button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.new-account-link {
+    margin-top: 10px;
+}
+
+.new-account-link>a {
+    text-decoration: underline;
 }
