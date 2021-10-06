@@ -27,7 +27,7 @@ const Signin = (props) => {
 
   useEffect(() => {
     if (userInfo) {
-      props.history.push("/");
+      props.history.push(redirect);
     }
   }, [userInfo, redirect, props.history]);
 

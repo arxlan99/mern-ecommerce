@@ -1,0 +1,18 @@
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 60px;
+}
+
+.checkout>div {
+    text-align: center;
+    width: 250px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.checkout>div:not(:last-child)::after {
+    content: " --->";
+    margin-left: 30px;
+}

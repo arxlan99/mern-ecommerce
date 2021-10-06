@@ -4,6 +4,8 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const UPDATE_CART_ITEM = "UPDATE_CART_ITEM";
 
+export const SAVE_SHIPPING_ADDRESS = "SAVE_SHIPPING_ADDRESS";
+
 export const addToCart = (productId, qty) => {
   return async (dispatch, getState) => {
     const { data } = await axios.get(`/api/products/${productId}`);
@@ -36,5 +38,16 @@ export const removeFromCart = (productId) => {
       "cartItems",
       JSON.stringify(getState().cart.cartItems)
     );
+  };
+};
+
+export const saveShippingAddress = (data) => {
+  return async (dispatch) => {
+    dispatch({
+      type: SAVE_SHIPPING_ADDRESS,
+      payload: data,
+    });
+
+    localStorage.setItem("shippingAddress", JSON.stringify(data));
   };
 };

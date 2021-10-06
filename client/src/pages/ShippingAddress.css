@@ -1,0 +1,38 @@
+.shipping {
+    flex: 1;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form>div {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 35px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.form>div>div {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form>div>div>input {
+    width: 500px;
+    padding: 10px;
+    border: none;
+    border-bottom: solid black 1px;
+}
+
+.form>div>div>button {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px; 
+}

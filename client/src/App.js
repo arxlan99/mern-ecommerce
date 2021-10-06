@@ -8,6 +8,7 @@ import NotFound from "./pages/404";
 import Cart from "./pages/Cart";
 import Signin from "./pages/Signin";
 import Register from "./pages/Register";
+import ShippingAddress from "./pages/ShippingAddress";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/cart/:id">
             <Cart />
+          </Route>
+          <Route path="/shipping">
+            <ShippingAddress />
           </Route>
           <Route>
             <NotFound />
