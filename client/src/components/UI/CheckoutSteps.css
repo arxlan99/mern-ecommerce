@@ -1,6 +1,6 @@
 .checkout {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 20px 60px;
 }
 
@@ -15,4 +15,20 @@
 .checkout>div:not(:last-child)::after {
     content: " --->";
     margin-left: 30px;
+}
+
+.active {
+    background-color: var(--main-color);
+    color: white;
+}
+
+@media screen and (max-width: 760px) {
+    .checkout {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .checkout>div {
+        margin-bottom: 10px;
+    }
 }

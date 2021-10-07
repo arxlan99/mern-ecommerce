@@ -2,27 +2,28 @@
     flex: 1;
 }
 
-.form {
+.shipping .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.form>div {
+.shipping .form>div {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     padding: 35px;
     margin-bottom: 30px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
-.form>div>div {
+.shipping .form>div>div {
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
 }
 
-.form>div>div>input {
+.shipping .form>div>div>input {
     width: 500px;
     padding: 10px;
     border: none;
@@ -34,5 +35,5 @@
     background-color: var(--main-color);
     color: white;
     border: none;
-    border-radius: 5px; 
+    border-radius: 5px;
 }

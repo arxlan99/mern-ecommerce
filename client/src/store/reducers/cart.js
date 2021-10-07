@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  SAVE_PAYMENT_METHOD,
   SAVE_SHIPPING_ADDRESS,
 } from "../actions/cart";
 
@@ -11,6 +12,7 @@ const initialState = {
   shippingAddress: localStorage.getItem("shippingAddress")
     ? JSON.parse(localStorage.getItem("shippingAddress"))
     : {},
+  paymentMethod: "Paypal",
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -44,6 +46,11 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         shippingAddress: action.payload,
+      };
+    case SAVE_PAYMENT_METHOD:
+      return {
+        ...state,
+        paymentMethod: action.payload,
       };
     default:
       return state;

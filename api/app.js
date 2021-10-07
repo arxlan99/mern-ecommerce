@@ -6,6 +6,7 @@ import cors from "cors";
 import productsRoutes from "./routes/products.js";
 import userRoutes from "./routes/user.js";
 import authRoutes from "./routes/auth.js";
+import ordersRoutes from "./routes/orders.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ app.use(cors(), (req, res, next) => {
 app.use("/api/products", productsRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/orders", ordersRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);

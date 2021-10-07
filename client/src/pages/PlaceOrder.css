@@ -1,0 +1,52 @@
+.placeorder {
+    flex: 1;
+}
+
+.placeorder .content {
+    display: flex;
+    justify-content: space-between
+}
+
+.placeorder .left>div {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    width: 1000px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.placeorder .left .orderItems li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeorder .right>div {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 5px;
+    width: 400px;
+    padding: 30px;
+}
+
+.placeorder .right>div .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.placeorder .right>div .button-container {
+    width: 100%;
+}
+
+.placeorder .right>div .button-container button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: var(--main-color);
+    color: white;
+    transition: all 0.5s;
+}
+
+.placeorder .right>div .button-container button:hover {
+    opacity: 0.9;
+}

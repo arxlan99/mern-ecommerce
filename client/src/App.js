@@ -9,6 +9,8 @@ import Cart from "./pages/Cart";
 import Signin from "./pages/Signin";
 import Register from "./pages/Register";
 import ShippingAddress from "./pages/ShippingAddress";
+import PaymentMethod from "./pages/PaymentMethod";
+import PlaceOrder from "./pages/PlaceOrder";
 
 function App() {
   return (
@@ -32,9 +34,16 @@ function App() {
           <Route path="/cart/:id">
             <Cart />
           </Route>
+          <Route path="/payment">
+            <PaymentMethod />
+          </Route>
           <Route path="/shipping">
             <ShippingAddress />
           </Route>
+          <Route path="/placeorder">
+            <PlaceOrder />
+          </Route>
+
           <Route>
             <NotFound />
           </Route>

@@ -5,8 +5,12 @@
 }
 
 .cart-left {
-    margin: 0 20px;
+    margin: 20px;
+    padding: 20px;
+    height: max-content;
+    border-radius: 5px;
     flex: 3;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .cart-left ul>* {
@@ -22,7 +26,11 @@
 }
 
 .cart-right {
-    margin-right: 20px;
+    margin: 20px;
+    padding: 20px;
+    height: max-content;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     flex: 1;
 }
 
