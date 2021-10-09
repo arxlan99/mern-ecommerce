@@ -29,7 +29,7 @@
 .payment .form>div>div>button {
     width: 100%;
     border-radius: 5px;
-    background-color: #00bcd4;
+    background-color: var(--main-color);
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -39,5 +39,6 @@
 }
 
 .payment .form>div>div>button:hover {
-    background-color: #00acc1;
+    background-color: var(--main-color);
+    opacity: 0.8;
 }

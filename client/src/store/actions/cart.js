@@ -7,6 +7,8 @@ export const UPDATE_CART_ITEM = "UPDATE_CART_ITEM";
 export const SAVE_SHIPPING_ADDRESS = "SAVE_SHIPPING_ADDRESS";
 export const SAVE_PAYMENT_METHOD = "SAVE_PAYMENT_METHOD";
 
+export const EMPTY_CART = "EMPTY_CART";
+
 export const addToCart = (productId, qty) => {
   return async (dispatch, getState) => {
     const { data } = await axios.get(`/api/products/${productId}`);
