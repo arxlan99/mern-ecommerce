@@ -6,6 +6,9 @@ import {
   DETAILS_ORDER_FAILURE,
   DETAILS_ORDER_REQUEST,
   DETAILS_ORDER_SUCCESS,
+  LIST_ORDER_MINE_FAILURE,
+  LIST_ORDER_MINE_REQUEST,
+  LIST_ORDER_MINE_SUCCESS,
 } from "../actions/order";
 
 export const orderCreateReducer = (state = {}, action) => {
@@ -33,6 +36,19 @@ export const orderDetailsReducer = (
     case DETAILS_ORDER_SUCCESS:
       return { loading: false, order: action.payload };
     case DETAILS_ORDER_FAILURE:
+      return { loading: false, error: action.error };
+    default:
+      return state;
+  }
+};
+
+export const orderMineListReducer = (state = {}, action) => {
+  switch (action.type) {
+    case LIST_ORDER_MINE_REQUEST:
+      return { loading: true };
+    case LIST_ORDER_MINE_SUCCESS:
+      return { loading: false, orders: action.payload };
+    case LIST_ORDER_MINE_FAILURE:
       return { loading: false, error: action.error };
     default:
       return state;

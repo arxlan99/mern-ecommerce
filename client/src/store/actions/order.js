@@ -10,6 +10,10 @@ export const DETAILS_ORDER_REQUEST = "DETAILS_ORDER_REQUEST";
 export const DETAILS_ORDER_SUCCESS = "DETAILS_ORDER_SUCCESS";
 export const DETAILS_ORDER_FAILURE = "DETAILS_ORDER_FAILURE";
 
+export const LIST_ORDER_MINE_REQUEST = "LIST_ORDER_MINE_REQUEST";
+export const LIST_ORDER_MINE_SUCCESS = "LIST_ORDER_MINE_SUCCESS";
+export const LIST_ORDER_MINE_FAILURE = "LIST_ORDER_MINE_FAILURE";
+
 export const createOrder = (order) => {
   return async (dispatch, getState) => {
     dispatch({ type: CREATE_ORDER_REQUEST });
@@ -57,6 +61,36 @@ export const detailsOrder = (orderId) => {
     } catch (error) {
       dispatch({
         type: DETAILS_ORDER_FAILURE,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
+};
+
+export const listOrdersMine = () => {
+  return async (dispatch, getState) => {
+    dispatch({ type: LIST_ORDER_MINE_REQUEST });
+    try {
+      const {
+        userSignin: { userInfo },
+      } = getState();
+
+      const response = await axios.get(`api/orders/mine`, {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+      console.log(response.data);
+      dispatch({
+        type: LIST_ORDER_MINE_SUCCESS,
+        payload: response.data.orders,
+      });
+    } catch (error) {
+      dispatch({
+        type: LIST_ORDER_MINE_FAILURE,
         payload:
           error.response && error.response.data.message
             ? error.response.data.message

@@ -42,9 +42,14 @@ const Navbar = (props) => {
                 {userInfo.name} <i className="fa fa-caret-down"></i>
               </Link>
               <ul className="navbar-dropdown-content">
-                <Link to="#signout" onClick={signoutHandler}>
-                  Sign Out
-                </Link>
+                <li>
+                  <Link to="/orderHistory">Order History</Link>
+                </li>
+                <li>
+                  <Link to="#signout" onClick={signoutHandler}>
+                    Sign Out
+                  </Link>
+                </li>
               </ul>
             </div>
           ) : (
