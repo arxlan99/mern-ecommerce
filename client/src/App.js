@@ -13,6 +13,7 @@ import PaymentMethod from "./pages/PaymentMethod";
 import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/orderHistory">
             <OrderHistory />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
           <Route>
             <NotFound />

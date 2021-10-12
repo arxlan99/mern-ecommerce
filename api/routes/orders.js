@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post("/", isAuth, postOrder);
 
-router.get("/:id", isAuth, getOrder);
-
 router.get("/mine", isAuth, getMineOrder);
+
+router.get("/:id", isAuth, getOrder);
 
 export default router;

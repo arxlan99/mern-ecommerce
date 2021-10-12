@@ -43,10 +43,13 @@ const Navbar = (props) => {
               </Link>
               <ul className="navbar-dropdown-content">
                 <li>
+                  <Link to="/profile">User Profile</Link>
+                </li>
+                <li>
                   <Link to="/orderHistory">Order History</Link>
                 </li>
                 <li>
-                  <Link to="#signout" onClick={signoutHandler}>
+                  <Link to="/#signout" onClick={signoutHandler}>
                     Sign Out
                   </Link>
                 </li>

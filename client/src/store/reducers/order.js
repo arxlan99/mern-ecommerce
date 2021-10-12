@@ -42,7 +42,10 @@ export const orderDetailsReducer = (
   }
 };
 
-export const orderMineListReducer = (state = {}, action) => {
+export const orderMineListReducer = (
+  state = { loading: true, orders: [] },
+  action
+) => {
   switch (action.type) {
     case LIST_ORDER_MINE_REQUEST:
       return { loading: true };

@@ -1,0 +1,29 @@
+.profile {
+    flex: 1;
+    margin: auto;
+    width: 500px;
+}
+
+.profile div {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.profile div form div input {
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+}
+
+.profile div form div button {
+    padding: 8px 16px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.profile div form div button:hover {
+    opacity: 0.9;
+}

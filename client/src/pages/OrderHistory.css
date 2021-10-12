@@ -2,3 +2,22 @@
     flex: 1;
     margin: 20px;
 }
+
+.order-history table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-history table tbody tr:nth-of-type(odd) {
+    background-color: #f4f4f4;
+}
+
+.order-history table td, .order-history .table th {
+    text-align: left;
+    border: 0.1rem solid #e4e4e4;
+    padding: 0.5rem;
+}
+
+.order-history table button {
+    margin: 0 0.2rem;
+}

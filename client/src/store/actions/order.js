@@ -57,7 +57,7 @@ export const detailsOrder = (orderId) => {
           },
         }
       );
-      dispatch({ type: DETAILS_ORDER_SUCCESS, payload: response.data.order });
+      dispatch({ type: DETAILS_ORDER_SUCCESS, payload: response.data.orders });
     } catch (error) {
       dispatch({
         type: DETAILS_ORDER_FAILURE,
@@ -83,7 +83,7 @@ export const listOrdersMine = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       });
-      console.log(response.data);
+      console.log(response.data.orders);
       dispatch({
         type: LIST_ORDER_MINE_SUCCESS,
         payload: response.data.orders,

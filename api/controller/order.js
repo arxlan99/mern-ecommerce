@@ -50,11 +50,8 @@ export const getOrder = async (req, res, next) => {
 
 export const getMineOrder = async (req, res, next) => {
   try {
-    const orders = [1, 2, 3]; /* await Order.find({ user: req.user.id }); */
-    console.log("-----------------------");
+    const orders = await Order.find({ user: req.user.id });
 
-    console.log(orders);
-    console.log("-----------------------");
     res.status(200).json({ orders: orders });
   } catch (error) {
     if (!error.statusCode) {

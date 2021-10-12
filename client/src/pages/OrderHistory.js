@@ -16,7 +16,6 @@ const OrderHistory = () => {
 
   useEffect(() => {
     dispatch(listOrdersMine());
-    console.log(orders);
   }, [dispatch]);
 
   return (
@@ -39,7 +38,7 @@ const OrderHistory = () => {
             </tr>
           </thead>
 
-          {/*     <tbody>
+          <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
@@ -64,7 +63,7 @@ const OrderHistory = () => {
                 </td>
               </tr>
             ))}
-          </tbody> */}
+          </tbody>
         </table>
       )}
     </div>
