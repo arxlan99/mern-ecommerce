@@ -1,0 +1,33 @@
+.productList {
+    flex: 1;
+    margin: 20px;
+}
+
+.productList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.productList .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productList .header button {
+    padding: 8px 16px;
+}
+
+.productList table tbody tr:nth-of-type(odd) {
+    background-color: #f4f4f4;
+}
+
+.productList table td, .productList table th {
+    text-align: left;
+    border: 0.1rem solid #e4e4e4;
+    padding: 0.5rem;
+}
+
+.productList table button {
+    margin: 0 0.2rem;
+}

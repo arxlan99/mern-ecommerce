@@ -80,7 +80,6 @@ export const detailsUser = (userId) => {
     dispatch({ type: USER_DETAILS_REQUEST, payload: userId });
     try {
       const { data } = await axios.get(`/api/users/${userId}`);
-      console.log(data.user);
       dispatch({ type: USER_DETAILS_SUCCESS, payload: data.user });
     } catch (error) {
       dispatch({

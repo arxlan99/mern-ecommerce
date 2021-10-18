@@ -40,7 +40,7 @@ const Profile = () => {
       setName(user.name);
       setEmail(user.email);
     }
-  }, [dispatch, userInfo._id, user]);
+  }, [dispatch, user, userInfo._id]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -48,6 +48,7 @@ const Profile = () => {
       return alert("Passwords don't match");
     } else {
       dispatch(updateUserProfile({ userId: user._id, name, email, password }));
+      window.location.reload();
     }
   };
 

@@ -33,7 +33,7 @@ export const getUser = async (req, res, next) => {
 
 export const putProfileInfo = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.body.userId);
     if (!user) {
       throw Error("User has not found");
     }

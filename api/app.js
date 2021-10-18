@@ -2,11 +2,13 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import path from "path";
 
 import productsRoutes from "./routes/products.js";
 import userRoutes from "./routes/user.js";
 import authRoutes from "./routes/auth.js";
 import ordersRoutes from "./routes/orders.js";
+import uploadRoutes from "./routes/upload.js";
 
 dotenv.config();
 const app = express();
@@ -22,10 +24,14 @@ app.use(cors(), (req, res, next) => {
   next();
 });
 
+app.use("/api/uploads", uploadRoutes);
 app.use("/api/products", productsRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", ordersRoutes);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use((error, req, res, next) => {
   console.log(error);

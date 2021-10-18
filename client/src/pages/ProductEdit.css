@@ -1,0 +1,25 @@
+.productEdit {
+    flex: 1;
+    margin: 20px;
+}
+
+.productEdit .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productEdit .form div {
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.productEdit .editContent>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.productEdit .editContent>div>input, textarea {
+    padding: 8px 16px;
+}

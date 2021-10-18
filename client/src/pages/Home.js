@@ -39,20 +39,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*{products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-          <div className="content-product">
-            {products.map((product) => (
-              <Card key={product._id} product={product}></Card>
-            ))}
-          </div>*/
-
-/* <Fragment>
-          {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
-          {products.length > 0 &&
-            products.map((product) => (
-              <div className="content-product">
-                <Card key={product._id} product={product}></Card>
-              </div>
-            ))}
-        </Fragment> */

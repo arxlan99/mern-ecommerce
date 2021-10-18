@@ -47,12 +47,18 @@
 .navbar-dropdown {
     display: inline-block;
     position: relative;
+    margin-right: 20px;
 }
 
 .navbar-dropdown li {
     margin-bottom: 10px;
     text-align: center;
     font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar-dropdown li:hover {
+    opacity: 0.8;
 }
 
 .navbar-dropdown-content {

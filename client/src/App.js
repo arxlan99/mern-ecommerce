@@ -14,6 +14,8 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Order from "./pages/Order";
 import OrderHistory from "./pages/OrderHistory";
 import Profile from "./pages/Profile";
+import ProductList from "./pages/ProductList";
+import ProductEdit from "./pages/ProductEdit";
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/product/:id">
+          <Route path="/product/:id" exact>
             <Product />
           </Route>
           <Route path="/cart">
@@ -54,6 +56,12 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/productList">
+            <ProductList />
+          </Route>
+          <Route path="/product/:id/edit" exact>
+            <ProductEdit />
           </Route>
           <Route>
             <NotFound />
