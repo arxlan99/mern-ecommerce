@@ -94,3 +94,24 @@ export const updateProduct = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deleteProduct = async (req, res, next) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      const deleteProduct = await product.remove();
+      res
+        .status(201)
+        .json({ message: "Deleted product", product: deleteProduct });
+    } else {
+      const error = new Error("Product not found!!");
+      error.statusCode = 404;
+      throw error;
+    }
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+    next(error);
+  }
+};

@@ -18,6 +18,10 @@ export const PRODUCT_UPDATE_SUCCESS = "PRODUCT_UPDATE_SUCCESS";
 export const PRODUCT_UPDATE_FAIL = "PRODUCT_UPDATE_FAIL";
 export const PRODUCT_UPDATE_RESET = "PRODUCT_UPDATE_RESET";
 
+export const PRODUCT_DELETE_REQUEST = "PRODUCT_DELETE_REQUEST";
+export const PRODUCT_DELETE_SUCCESS = "PRODUCT_DELETE_SUCCESS";
+export const PRODUCT_DELETE_FAIL = "PRODUCT_DELETE_FAIL";
+export const PRODUCT_DELETE_RESET = "PRODUCT_DELETE_RESET";
 
 export const listProducts = () => {
   return async (dispatch) => {
@@ -87,7 +91,6 @@ export const createProduct = () => {
   };
 };
 
-
 export const updateProduct = (product) => {
   return async (dispatch, getState) => {
     dispatch({ type: PRODUCT_UPDATE_REQUEST });
@@ -117,4 +120,31 @@ export const updateProduct = (product) => {
       });
     }
   };
-}
+};
+
+export const deleteProduct = (id) => {
+  return async (dispatch, getState) => {
+    dispatch({ type: PRODUCT_DELETE_REQUEST });
+    try {
+      const {
+        userSignin: { userInfo },
+      } = getState();
+
+      const { data } = await axios.delete(`/api/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+
+      dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data.product });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_DELETE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
+};

@@ -4,7 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../components/Feedback/LoadingBox";
 import MessageBox from "../components/Feedback/MessageBox";
 import { useHistory } from "react-router-dom";
-import { createProduct, listProducts } from "../store/actions/product";
+import {
+  createProduct,
+  listProducts,
+  deleteProduct,
+  PRODUCT_CREATE_RESET,
+  PRODUCT_DELETE_RESET,
+} from "../store/actions/product";
 
 const ProductList = () => {
   const history = useHistory();
@@ -21,15 +27,30 @@ const ProductList = () => {
     product: createdProduct,
   } = productCreate;
 
+  const productDelete = useSelector((state) => state.productDelete);
+  const {
+    loading: loadingDelete,
+    success: successDelete,
+    error: errorDelete,
+  } = productDelete;
+
   useEffect(() => {
     if (successCreate) {
-      dispatch({ type: "PRODUCT_CREATE_RESET" });
+      dispatch({ type: PRODUCT_CREATE_RESET });
       history.push(`/products/${createdProduct._id}/edit`);
     }
-    dispatch(listProducts());
-  }, [createdProduct, dispatch, history, successCreate]);
 
-  const deleteHandler = () => {};
+    if (successDelete) {
+      dispatch({ type: PRODUCT_DELETE_RESET });
+    }
+    dispatch(listProducts());
+  }, [createdProduct, dispatch, history, successCreate, successDelete]);
+
+  const deleteHandler = (product) => {
+    if (window.confirm(`Do you want to delete the product?`)) {
+      dispatch(deleteProduct(product._id));
+    }
+  };
 
   const createHandler = () => {
     dispatch(createProduct());
@@ -43,10 +64,10 @@ const ProductList = () => {
           Create Product
         </button>
       </div>
+      {loadingDelete && <LoadingBox />}
+      {errorDelete && <MessageBox message="danger">{errorDelete}</MessageBox>}
       {loadingCreate && <LoadingBox />}
-      {errorCreate && (
-        <MessageBox message={errorCreate}>{errorCreate} </MessageBox>
-      )}
+      {errorCreate && <MessageBox variant="danger">{errorCreate} </MessageBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

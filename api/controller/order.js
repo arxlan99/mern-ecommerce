@@ -60,3 +60,36 @@ export const getMineOrder = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find().populate("user", "name");
+
+    res.status(200).json({ orders: orders });
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+    next(error);
+  }
+};
+
+export const deleteOrder = async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.id);
+    if (!order) {
+      const error = new Error("Order not found");
+      error.statusCode = 404;
+      throw error;
+    }
+    const deleteOrder = await order.remove();
+    res
+      .status(200)
+      .json({ message: "Order deleted successfully", order: deleteOrder });
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+    next(error);
+  }
+};

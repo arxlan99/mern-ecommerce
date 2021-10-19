@@ -4,7 +4,8 @@ import {
   getProduct,
   createSeed,
   createProduct,
-  updateProduct
+  updateProduct,
+  deleteProduct
 } from "../controller/product.js";
 import { isAuth } from "../middleware/isAuth.js";
 
@@ -19,5 +20,7 @@ router.get("/:id", getProduct);
 router.post("/", isAuth, createProduct);
 
 router.put('/:id', isAuth, updateProduct);
+
+router.delete("/:id", isAuth, deleteProduct);
 
 export default router;
