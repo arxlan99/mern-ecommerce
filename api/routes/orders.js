@@ -4,7 +4,8 @@ import {
   getOrder,
   getMineOrder,
   getOrders,
-  deleteOrder
+  deleteOrder,
+  deliverOrder,
 } from "../controller/order.js";
 import { isAuth } from "../middleware/isAuth.js";
 
@@ -20,5 +21,6 @@ router.get("/:id", isAuth, getOrder);
 
 router.delete("/:id", isAuth, deleteOrder);
 
+router.put("/:id/deliver", isAuth, deliverOrder);
 
 export default router;

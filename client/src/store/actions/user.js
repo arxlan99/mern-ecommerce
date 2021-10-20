@@ -22,7 +22,7 @@ export const signin = (email, password) => {
   return async (dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
     try {
-      const data = await axios.post("/api/auth/signin", {
+      const data = await axios.post(`/api/auth/signin`, {
         email,
         password,
       });
@@ -57,7 +57,7 @@ export const register = (name, email, password) => {
       payload: { name, email, password },
     });
     try {
-      const data = await axios.post("/api/auth/register", {
+      const data = await axios.post(`/api/auth/register`, {
         name,
         email,
         password,

@@ -27,7 +27,7 @@ export const listProducts = () => {
   return async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
-      const { data } = await axios.get("/api/products");
+      const { data } = await axios.get(`/api/products`);
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data.products });
     } catch (error) {
       dispatch({
@@ -69,7 +69,7 @@ export const createProduct = () => {
         userSignin: { userInfo },
       } = getState();
       const { data } = await axios.post(
-        "/api/products",
+        `/api/products`,
         {},
         {
           headers: {

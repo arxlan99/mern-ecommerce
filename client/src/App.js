@@ -19,12 +19,10 @@ import ProductEdit from "./pages/ProductEdit";
 import OrderList from "./pages/OrderList";
 
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { Fragment } from "react";
 
 function App() {
-  let auth = useSelector((state) => state.userSignin.userInfo.isAdmin);
-
+  let auth = useSelector((state) => state.userSignin?.userInfo?.isAdmin);
+  console.log(process.env.REACT_APP_API_ADDRESS);
   return (
     <Router forceRefresh={true}>
       <div className="app">

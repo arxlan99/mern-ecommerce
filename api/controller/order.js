@@ -93,3 +93,26 @@ export const deleteOrder = async (req, res, next) => {
     next(error);
   }
 };
+
+export const deliverOrder = async (req, res, next) => {
+  try {
+    const order = await Order.findById(req.params.id);
+    if (!order) {
+      const error = new Error("Order not found");
+      error.statusCode = 404;
+      throw error;
+    }
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
+
+    const updatedOrder = await order.save();
+    res
+      .status(200)
+      .json({ message: "Order delivered successfully", order: updatedOrder });
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500;
+    }
+    next(error);
+  }
+};

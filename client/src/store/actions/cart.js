@@ -11,6 +11,7 @@ export const EMPTY_CART = "EMPTY_CART";
 
 export const addToCart = (productId, qty) => {
   return async (dispatch, getState) => {
+   
     const { data } = await axios.get(`/api/products/${productId}`);
     const product = data.product;
     dispatch({
