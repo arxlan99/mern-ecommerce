@@ -27,7 +27,7 @@ const Navbar = (props) => {
           <Link to="/cart">
             <div className="navbar-badge-container">
               <span>Cart</span>
-              {cartItems.length > 0 && (
+              {cartItems?.length > 0 && (
                 <div className="navbar-badge">
                   <span>{cartItems.length}</span>
                 </div>

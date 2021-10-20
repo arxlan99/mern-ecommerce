@@ -37,14 +37,14 @@ const Cart = (props) => {
 
   return (
     <div className="cart">
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 ? (
         <MessageBox>Cart is empty.</MessageBox>
       ) : (
         <Fragment>
           <div className="cart-left">
             <h1>Shopping Cart</h1>
             <ul className="cart-left-content">
-              {cartItems.map((item) => (
+              {cartItems?.map((item) => (
                 <li className="cart-products-list">
                   <img src={item.image} alt="" width="75" height="75" />
                   <span>

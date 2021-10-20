@@ -22,7 +22,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   let auth = useSelector((state) => state.userSignin?.userInfo?.isAdmin);
-  console.log(process.env.REACT_APP_API_ADDRESS);
   return (
     <Router forceRefresh={true}>
       <div className="app">
