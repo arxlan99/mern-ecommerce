@@ -13,3 +13,8 @@
     color: #a02020;
     background-color: #ffe0e0;
 }
+
+.alert-success {
+    color: #008000;
+    background-color: #e0ffe0;
+}

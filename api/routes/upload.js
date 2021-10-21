@@ -15,8 +15,8 @@ const storage = multer.diskStorage({
 
 export const upload = multer({ storage });
 
-router.post("/", isAuth, upload.single("image"), (req, res, next) => {
-  let fileUrl = req.file.path.replace(/\\/g, "/");
+router.post("/", isAuth, upload.single("image"), async (req, res, next) => {
+  let fileUrl = await req.file.path.replace(/\\/g, "/");
 
   res.json(`${fileUrl}`);
 });

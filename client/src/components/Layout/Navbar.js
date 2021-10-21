@@ -27,7 +27,7 @@ const Navbar = (props) => {
           <Link to="/cart">
             <div className="navbar-badge-container">
               <span>Cart</span>
-              {cartItems?.length > 0 && (
+              {cartItems.length > 0 && (
                 <div className="navbar-badge">
                   <span>{cartItems.length}</span>
                 </div>
@@ -59,6 +59,21 @@ const Navbar = (props) => {
             <Link to="/signin">
               <span>Sign in </span>
             </Link>
+          )}
+          {userInfo && userInfo.isSeller && (
+            <div className="navbar-dropdown">
+              <Link to="/admin">
+                Seller <i className="fa fa-caret-down"></i>
+              </Link>
+              <ul className="navbar-dropdown-content">
+                <li>
+                  <Link to="/productList/seller">Products</Link>
+                </li>
+                <li>
+                  <Link to="/orderList/seller">Orders</Link>
+                </li>
+              </ul>
+            </div>
           )}
           {userInfo && userInfo.isAdmin && (
             <div className="navbar-dropdown">

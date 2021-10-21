@@ -79,13 +79,16 @@ const ProductEdit = () => {
     bodyFormData.append("image", file);
     setLoadingUpload(true);
     try {
-      const { data } = await axios.post("/api/uploads", bodyFormData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      });
-      console.log(data);
+      const { data } = await axios.post(
+        "https://mern-ecommerce-123.herokuapp.com/api/uploads",
+        bodyFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
       setImage(data);
       setLoadingUpload(false);
     } catch (error) {

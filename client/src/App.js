@@ -19,9 +19,12 @@ import ProductEdit from "./pages/ProductEdit";
 import OrderList from "./pages/OrderList";
 
 import { useSelector } from "react-redux";
+import UserList from "./pages/UserList";
+import UserEdit from "./pages/UserEdit";
 
 function App() {
   let auth = useSelector((state) => state.userSignin?.userInfo?.isAdmin);
+  let seller = useSelector((state) => state.userSignin?.userInfo?.isSeller);
   return (
     <Router forceRefresh={true}>
       <div className="app">
@@ -76,12 +79,30 @@ function App() {
               <OrderList />
             </Route>
           )}
-
+          {auth && (
+            <Route path="/userList">
+              <UserList />
+            </Route>
+          )}
+          {auth && (
+            <Route path="/user/:id/edit">
+              <UserEdit />
+            </Route>
+          )}
+          {seller && (
+            <Route path="/productList/seller">
+              <ProductList />
+            </Route>  
+          )}
+          {seller && (
+            <Route path="/orderList/seller">
+              <OrderList />
+            </Route>  
+          )}
           <Route>
             <NotFound />
           </Route>
         </Switch>
-
         <Footer />
       </div>
     </Router>
