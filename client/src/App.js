@@ -65,7 +65,7 @@ function App() {
             <Profile />
           </Route>
           {auth && (
-            <Route path="/productList">
+            <Route path="/productList" exact>
               <ProductList />
             </Route>
           )}
@@ -75,7 +75,7 @@ function App() {
             </Route>
           )}
           {auth && (
-            <Route path="/orderList">
+            <Route path="/orderList" exact>
               <OrderList />
             </Route>
           )}
@@ -92,12 +92,12 @@ function App() {
           {seller && (
             <Route path="/productList/seller">
               <ProductList />
-            </Route>  
+            </Route>
           )}
           {seller && (
             <Route path="/orderList/seller">
               <OrderList />
-            </Route>  
+            </Route>
           )}
           <Route>
             <NotFound />

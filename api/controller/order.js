@@ -9,6 +9,7 @@ export const postOrder = async (req, res, next) => {
     }
 
     const order = new Order({
+      seller: req.body.orderItems[0].seller,
       orderItems: req.body.orderItems,
       shippingAddress: req.body.shippingAddress,
       paymentMethod: req.body.paymentMethod,
@@ -63,7 +64,10 @@ export const getMineOrder = async (req, res, next) => {
 
 export const getOrders = async (req, res, next) => {
   try {
-    const orders = await Order.find().populate("user", "name");
+    const seller = req.query.seller || "";
+    const setFilter = seller ? { seller } : {};
+
+    const orders = await Order.find({...setFilter}).populate("user", "name");
 
     res.status(200).json({ orders: orders });
   } catch (error) {

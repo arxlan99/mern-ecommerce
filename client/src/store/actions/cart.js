@@ -22,6 +22,7 @@ export const addToCart = (productId, qty) => {
         image: product.image,
         countInStock: product.countInStock,
         productId: product._id,
+        seller: product.seller,
         qty,
       },
     });

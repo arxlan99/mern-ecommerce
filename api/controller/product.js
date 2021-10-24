@@ -15,7 +15,10 @@ export const createSeed = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
   try {
-    const products = await Product.find();
+    const seller = req.query.seller || "";
+    const setFilter = seller ? { seller } : {};
+    const products = await Product.find({ ...setFilter });
+    console.log(seller);
     res.status(201).json({ products });
   } catch (error) {
     if (error) {
@@ -46,6 +49,7 @@ export const createProduct = async (req, res, next) => {
   try {
     const product = new Product({
       name: "sample name " + Date.now(),
+      seller: req.user._id,
       image: "/images/p1.jpg",
       price: 0,
       category: "sample category",

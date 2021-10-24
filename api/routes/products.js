@@ -5,9 +5,10 @@ import {
   createSeed,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 } from "../controller/product.js";
 import { isAuth } from "../middleware/isAuth.js";
+import { isSellerOrAdmin } from "../middleware/isSellerOrAdmin.js";
 
 const router = express.Router();
 
@@ -17,9 +18,9 @@ router.get("/", getAllProducts);
 
 router.get("/:id", getProduct);
 
-router.post("/", isAuth, createProduct);
+router.post("/", isAuth, isSellerOrAdmin, createProduct);
 
-router.put('/:id', isAuth, updateProduct);
+router.put("/:id", isAuth, isSellerOrAdmin, updateProduct);
 
 router.delete("/:id", isAuth, deleteProduct);
 

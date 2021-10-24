@@ -38,7 +38,12 @@ export const putProfileInfo = async (req, res, next) => {
       throw Error("User has not found");
     }
     user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
+    user.email = req.body.email || user.email; 
+    if (user.isSeller) {
+      user.seller.name = req.body.sellerName || user.seller.name;
+      user.seller.description = req.body.sellerDescription || user.seller.description;
+      user.seller.logo = req.body.sellerLogo || user.seller.logo;
+    }
     if (req.body.password) {
       user.password = bcrypt.hash(req.body.password, 8);
     }
@@ -111,9 +116,7 @@ export const editUser = async (req, res, next) => {
     if (!user) {
       throw Error("User has not found");
     }
-    if (user.email === "admin@gmail.com" || user.email === "ozkan@gmail.com") {
-      throw Error("Admin user can not be changed");
-    }
+
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
     user.isSeller = req.body.isSeller || user.isSeller;

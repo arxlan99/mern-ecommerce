@@ -3,7 +3,7 @@ import "./ProductList.css";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../components/Feedback/LoadingBox";
 import MessageBox from "../components/Feedback/MessageBox";
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import {
   createProduct,
   listProducts,
@@ -12,9 +12,12 @@ import {
   PRODUCT_DELETE_RESET,
 } from "../store/actions/product";
 
-const ProductList = () => {
+const ProductList = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  let match = useRouteMatch("/productList/seller");
+  let sellerMode = match?.isExact ? true : false;
 
   const productList = useSelector((state) => state.productList);
   const { products, error, loading } = productList;
@@ -34,6 +37,9 @@ const ProductList = () => {
     error: errorDelete,
   } = productDelete;
 
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
@@ -43,8 +49,16 @@ const ProductList = () => {
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
-    dispatch(listProducts());
-  }, [createdProduct, dispatch, history, successCreate, successDelete]);
+    dispatch(listProducts({ seller: sellerMode ? userInfo._id : "" }));
+  }, [
+    createdProduct,
+    dispatch,
+    history,
+    sellerMode,
+    successCreate,
+    successDelete,
+    userInfo._id,
+  ]);
 
   const deleteHandler = (product) => {
     if (window.confirm(`Do you want to delete the product?`)) {

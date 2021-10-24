@@ -36,30 +36,6 @@ const Navbar = (props) => {
           </Link>
         </div>
         <div>
-          {userInfo ? (
-            <div className="navbar-dropdown">
-              <Link to="#">
-                {userInfo.name} <i className="fa fa-caret-down"></i>
-              </Link>
-              <ul className="navbar-dropdown-content">
-                <li>
-                  <Link to="/profile">User Profile</Link>
-                </li>
-                <li>
-                  <Link to="/orderHistory">Order History</Link>
-                </li>
-                <li>
-                  <Link to="/#signout" onClick={signoutHandler}>
-                    Sign Out
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <Link to="/signin">
-              <span>Sign in </span>
-            </Link>
-          )}
           {userInfo && userInfo.isSeller && (
             <div className="navbar-dropdown">
               <Link to="/admin">
@@ -95,6 +71,30 @@ const Navbar = (props) => {
                 </li>
               </ul>
             </div>
+          )}
+          {userInfo ? (
+            <div className="navbar-dropdown">
+              <Link to="#">
+                {userInfo.name} <i className="fa fa-caret-down"></i>
+              </Link>
+              <ul className="navbar-dropdown-content">
+                <li>
+                  <Link to="/profile">User Profile</Link>
+                </li>
+                <li>
+                  <Link to="/orderHistory">Order History</Link>
+                </li>
+                <li>
+                  <Link to="/#signout" onClick={signoutHandler}>
+                    Sign Out
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/signin">
+              <span>Sign in </span>
+            </Link>
           )}
         </div>
       </div>

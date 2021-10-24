@@ -23,12 +23,13 @@ export const PRODUCT_DELETE_SUCCESS = "PRODUCT_DELETE_SUCCESS";
 export const PRODUCT_DELETE_FAIL = "PRODUCT_DELETE_FAIL";
 export const PRODUCT_DELETE_RESET = "PRODUCT_DELETE_RESET";
 
-export const listProducts = () => {
+export const listProducts = ({ seller = "" }) => {
   return async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
     try {
-      const { data } = await axios.get(`/api/products`);
+      const { data } = await axios.get(`/api/products?seller=${seller}`);
       dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data.products });
+      console.log(data);
     } catch (error) {
       dispatch({
         type: PRODUCT_LIST_FAIL,
@@ -42,8 +43,6 @@ export const listProducts = () => {
 };
 
 export const getProductDetail = (id) => {
-  console.log(id);
-
   return async (dispatch) => {
     dispatch({ type: PRODUCT_DETAIL_REQUEST });
     try {
